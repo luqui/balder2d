@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Balder2D" />
+		<Option pch_mode="0" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="default">
+				<Option output="bin\Balder2D.exe" prefix_auto="0" extension_auto="0" />
+				<Option working_dir="bin" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option projectResourceIncludeDirsRelation="1" />
+			</Target>
+		</Build>
+		<VirtualTargets>
+			<Add alias="All" targets="default;" />
+		</VirtualTargets>
+		<Compiler>
+			<Add directory="C:\MinGW\include" />
+			<Add directory="C:\msys\1.0\local\include" />
+			<Add directory="C:\msys\1.0\local\include\SDL" />
+			<Add directory="C:\Python25\include" />
+			<Add directory="C:\Balder2D\include" />
+		</Compiler>
+		<Linker>
+			<Add option="-mwindows" />
+			<Add library="mingw32" />
+			<Add library="guichan" />
+			<Add library="guichan_sdl" />
+			<Add library="SDLmain" />
+			<Add library="SDL_gfx" />
+			<Add library="SDL" />
+			<Add library="SDL_image" />
+			<Add library="SDL_mixer" />
+			<Add library="C:\msys\1.0\local\lib\libboost_filesystem-mgw-1_33_1.lib" />
+			<Add library="Python25" />
+			<Add library="physfs" />
+			<Add directory="C:\MinGW\lib" />
+			<Add directory="C:\msys\1.0\local\lib" />
+			<Add directory="C:\Python25\libs" />
+		</Linker>
+		<Unit filename="include\artificialcontroller.h" />
+		<Unit filename="include\balder2dtypes.h" />
+		<Unit filename="include\collisionmask.h" />
+		<Unit filename="include\computerprobecontrol.h" />
+		<Unit filename="include\configmanager.h" />
+		<Unit filename="include\entity.h" />
+		<Unit filename="include\gamemanager.h" />
+		<Unit filename="include\imageloader.h" />
+		<Unit filename="include\input.h" />
+		<Unit filename="include\log.h" />
+		<Unit filename="include\mapparser.h" />
+		<Unit filename="include\menu\ailistmodel.h" />
+		<Unit filename="include\menu\animationwidget.h" />
+		<Unit filename="include\menu\gamesetup.h" />
+		<Unit filename="include\menu\mainmenu.h" />
+		<Unit filename="include\menu\maplistmodel.h" />
+		<Unit filename="include\menu\menu.h" />
+		<Unit filename="include\menu\numberfield.h" />
+		<Unit filename="include\menu\options.h" />
+		<Unit filename="include\menu\playersetup.h" />
+		<Unit filename="include\menu\samplemapwidget.h" />
+		<Unit filename="include\menu\sampleprobewidget.h" />
+		<Unit filename="include\menu\skinnedbuttonwidget.h" />
+		<Unit filename="include\menu\soundvideo.h" />
+		<Unit filename="include\menu\submenu.h" />
+		<Unit filename="include\player.h" />
+		<Unit filename="include\powerup.h" />
+		<Unit filename="include\powerupfactory.h" />
+		<Unit filename="include\probe.h" />
+		<Unit filename="include\probefactory.h" />
+		<Unit filename="include\projectile.h" />
+		<Unit filename="include\projectilefactory.h" />
+		<Unit filename="include\renderer.h" />
+		<Unit filename="include\soundmanager.h" />
+		<Unit filename="src\SFont\Font.h" />
+		<Unit filename="src\SFont\SFont.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src\SFont\SFont.h" />
+		<Unit filename="src\artificialcontroller.cpp" />
+		<Unit filename="src\collisionmask.cpp" />
+		<Unit filename="src\computerprobecontrol.cpp" />
+		<Unit filename="src\configmanager.cpp" />
+		<Unit filename="src\entity.cpp" />
+		<Unit filename="src\gamemanager.cpp" />
+		<Unit filename="src\imageloader.cpp" />
+		<Unit filename="src\input.cpp" />
+		<Unit filename="src\log.cpp" />
+		<Unit filename="src\main.cpp" />
+		<Unit filename="src\mapparser.cpp" />
+		<Unit filename="src\menu\ailistmodel.cpp" />
+		<Unit filename="src\menu\animationwidget.cpp" />
+		<Unit filename="src\menu\gamesetup.cpp" />
+		<Unit filename="src\menu\mainmenu.cpp" />
+		<Unit filename="src\menu\maplistmodel.cpp" />
+		<Unit filename="src\menu\menu.cpp" />
+		<Unit filename="src\menu\numberfield.cpp" />
+		<Unit filename="src\menu\options.cpp" />
+		<Unit filename="src\menu\playersetup.cpp" />
+		<Unit filename="src\menu\samplemapwidget.cpp" />
+		<Unit filename="src\menu\sampleprobewidget.cpp" />
+		<Unit filename="src\menu\skinnedbuttonwidget.cpp" />
+		<Unit filename="src\menu\soundvideo.cpp" />
+		<Unit filename="src\menu\submenu.cpp" />
+		<Unit filename="src\player.cpp" />
+		<Unit filename="src\powerup.cpp" />
+		<Unit filename="src\powerupfactory.cpp" />
+		<Unit filename="src\probe.cpp" />
+		<Unit filename="src\probefactory.cpp" />
+		<Unit filename="src\projectile.cpp" />
+		<Unit filename="src\projectilefactory.cpp" />
+		<Unit filename="src\renderer.cpp" />
+		<Unit filename="src\soundmanager.cpp" />
+		<Unit filename="src\tinyxml\tinystr.cpp" />
+		<Unit filename="src\tinyxml\tinystr.h" />
+		<Unit filename="src\tinyxml\tinyxml.cpp" />
+		<Unit filename="src\tinyxml\tinyxml.h" />
+		<Unit filename="src\tinyxml\tinyxmlerror.cpp" />
+		<Unit filename="src\tinyxml\tinyxmlparser.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

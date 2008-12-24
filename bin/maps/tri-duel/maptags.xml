@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!-- information about the map -->
+<Map name="tri-duel">
+	<Size width="1024" height="640" />
+	<!-- Spawn Locations -->
+	<spawn>
+		<location x="512" y="574" />
+		<velocity x="0" y="1" />
+		<stuck status="false" />
+	</spawn>
+	<spawn>
+		<location x="292" y="193" />
+		<velocity x="-0.866" y="-0.5" />
+		<stuck status="false" />
+	</spawn>
+	<spawn>
+		<location x="732" y="193" />
+		<velocity x="0.866" y="-0.5" />
+		<stuck status="false" />
+	</spawn>
+</Map>

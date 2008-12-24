@@ -1,0 +1,5 @@
+This file contains information about various pieces of music packaged with balder2d:
+
+default.ogg - "Prima Percezione" by Giuseppe Mangione (http://www.fonogeno.com). License is Creative Commons by-nc-sa (http://creativecommons.org/licenses/by-nc-sa/2.0/)
+
+menu.ogg - "Nuevia" by Galdson_Factoría de Entornos Musicales (http:://www.galdson.com).  License is Creative Commons by-sa (http://creativecommons.org/licenses/by-sa/2.5/)

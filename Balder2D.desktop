@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Balder2D
+Comment=2D overhead shooter in Zero G
+Exec=balder2d
+Icon=balder2d.xpm
+Type=Application
+Categories=Game;ArcadeGame;

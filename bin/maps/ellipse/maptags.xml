@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!-- information about the map -->
+<Map name="default">
+	<Size width="1024" height="668" />
+	<!-- Spawn Locations -->
+	<spawn>
+		<location x="200" y="94" />
+		<velocity x="1" y="1" />
+		<stuck status="false" />
+	</spawn>
+	<spawn>
+		<location x="824" y="570" />
+		<velocity x="0" y="0" />
+		<stuck status="true" />
+	</spawn>
+	<spawn>
+		<location x="824" y="94" />
+		<velocity x="1" y="1" />
+		<stuck status="false" />
+	</spawn>
+	<spawn>
+		<location x="200" y="570" />
+		<velocity x="1" y="1" />
+		<stuck status="false" />
+	</spawn>
+	<spawn>
+		<location x="500" y="20" />
+		<velocity x="1" y="1" />
+		<stuck status="false" />
+	</spawn>		
+	<spawn>
+		<location x="1000" y="330" />
+		<velocity x="1" y="1" />
+		<stuck status="false" />
+	</spawn>
+		<spawn>
+		<location x="500" y="640" />
+		<velocity x="1" y="1" />
+		<stuck status="false" />
+	</spawn>		
+	<spawn>
+		<location x="20" y="330" />
+		<velocity x="1" y="1" />
+		<stuck status="false" />
+	</spawn>
+</Map>

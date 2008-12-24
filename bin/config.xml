@@ -1,0 +1,72 @@
+<?xml version="1.0" ?>
+<!-- Balder2d Configuration data -->
+<Balder>
+    <!-- The following is meant to be modified by the user -->
+    <Map name="alpha quadrant" />
+    <NumberOfPlayers value="4" />
+    <GameSetup>
+        <!-- negative values indicate disabled modes -->
+        <ScoreLimit value="120" />
+        <!-- time limit is in minutes -->
+        <TimeLimit value="8" />
+        <LifeLimit value="15" />
+    </GameSetup>
+    <Video>
+        <fullscreen value="0" />
+    </Video>
+    <Sound>
+        <fxvolume value="86.328125" />
+        <musicvolume value="86.328125" />
+        <music value="1" />
+        <sound value="1" />
+    </Sound>
+    <Player controller="1">
+        <Control type="Human" />
+        <Actions>
+            <right key="RIGHT" />
+            <left key="LEFT" />
+            <stick key="DOWN" />
+            <push key="UP" />
+            <fire key="UP" />
+        </Actions>
+        <Probe>
+            <Color probe_color="8487423" />
+        </Probe>
+    </Player>
+    <Player controller="2">
+        <Control type="balderai" />
+        <Probe>
+            <Color probe_color="16711680" />
+        </Probe>
+    </Player>
+    <Player controller="3">
+        <Control type="balderai" />
+        <Probe>
+            <Color probe_color="65280" />
+        </Probe>
+    </Player>
+    <!-- Values below this line are for tweaking different aspects of the game.          regular users will not usually want to mess with this stuff. -->
+    <Entity>
+        <maxvelocity value="5" />
+    </Entity>
+    <Probe>
+        <maxhits value="3" />
+        <maxcharge value="5" />
+        <rechargetime value="400" />
+        <maxspeed value="3" />
+        <poweruptime value="10" />
+        <turningspeed value="0.041666667" />
+    </Probe>
+    <Projectile>
+        <radius value="8" />
+        <lifetime value="200" />
+        <frames value="8" />
+        <explodeframes value="8" />
+        <exploderadius value="16" />
+        <speed value="4" />
+        <AddProbeVelocity value="0" />
+    </Projectile>
+    <Powerup>
+        <spawn_interval value="400" />
+    </Powerup>
+</Balder>

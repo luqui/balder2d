@@ -1,0 +1,983 @@
+Balder2d detailed changelog.
+http://balder.sourceforge.net/
+
+History entries are in reverse chronological order (newest entries first).
+
+10 Dec-2007
+    - Reuben added definition for textDisplaceY into balder3dtypes to control the
+    vertical displacement of text in widgets.
+    - Reuben redesigned the sub-menu page background and saved it in menuskin.png
+    instead of pagebackground.png.
+    - Reuben reformatted the paramaters for the skinned widget constructors so that
+    they are all more uniform.
+    - Reuben replaced all old guichan gcn::Slider's with the new SkinnedSlider's.
+
+4 Dec-2007
+    - Reuben added skinnedslider.cpp/h too allow for skinned slider bars in the menu.
+    - Reuben added Inno Setup script file for making windows installation program.
+
+3 Dec-2007
+    - Reuben changed the fullscreen option in the menu to control both the menu screen
+    and the game screen.
+    - Reuben moved all of the widgets in the /menu/ dir to /menu/widgets/
+
+1 Dec-2007
+    - Bjorn fixed the bug where AI selection box and color sliders didn't work because
+    refreshKeys() was being called first thing in the action handler and setting them
+    right back where they were before, thus they could not get changed.
+
+30 Nov-2007
+    - Reuben replaced all standard gcn::checkbox objects in the menu system
+    with WidgetSkinnedCheckBox.
+    - Reuben add frame size controls to WidgetSkinnedCheckBox.
+    - Reuben add widgetskinnedcheckbox.cpp/h and menuskin.png
+
+19 Nov-2007
+    - Reuben removed ending slashes from the python search paths because they
+    cause an issue with python when it goes to import modules.
+
+18 Nov-2007
+    - Bjorn fixed bug in windows script paths by using raw python strings so that
+    single backslash characters are not interpreted as escape characters.
+
+08 Nov-2007
+    -Reuben cleaned up some temporary log points.
+
+06 Nov-2007
+    - Reuben renamed the Windows installation instructions to
+    Balder2D-Win-README.txt.
+
+05 Nov-2007
+    - Reuben removed Boost FS lib flags from Balder2D-Win.cbp.
+    - Reuben added some more temp log points.
+
+24 Oct-2007
+    - Reuben added filepathmanager.cpp/h to Balder2D-Win.cbp project file.
+    - Reuben added some log file check points for tracking an AI bug.
+
+24 Oct-2007
+    - Bjorn fixed the bug where life, time, and score limits were not set
+    unless the option was toggled via the checkbox.
+    - Bjorn added a function to imageloader to unload (SDL_FreeSurface()) an
+    image, instead of letting it be called directly
+    - Bjorn made it so imageloader will only load an image once, after that it
+    will just return the previously loaded reference
+    - Bjorn tweaked the soundmanager to load sound files correctly, using the
+    full path as obtained from filepathmanager.
+    - Bjorn fixed a crash from double deletion of the font image in renderer
+    - Reuben changed the main window caption icon to use /balder2d.xpm.
+
+23 Oct-2007
+    - Bjorn fixed a bunch of memory leaks in ArtificialCotroller::DoControl
+    - Bjorn fixed a few other minor leaks, but there are still many in
+    gamemanager (players, spawns, entities are not deleted)
+
+11 Oct-2007
+    - Bjorn added an arg parser to filepathmanager and a method to get the full
+    path to the config file.
+    - Bjorn added FilePathManager class to abstract calls to physicsfs and
+    provide utility methods to get the search path and find the real path of
+    a file.
+    - Bjorn made the artificialcontroller set up iterate through the search
+    path and add all scrip directories to the python path.
+
+10 Oct-2007
+    - Bjorn added physfs dependancy in order to make file opening independant
+    of the location of the binary.
+    - Bjorn added changes so that images (both sdl and guichan) are loaded
+    through the imagemanager methods.  These methods use physfs to locate
+    the desired file and then pass the full path to the SDL and Guichan
+    image loading functions.
+    - Bjorn eliminated the need for boost::filesystem.  The directory search/
+    enumeration is now done using physicsfs.
+
+08 Oct-2007
+    - Reuben separated the CodeBlocks project file into two project files, one
+      for Windows and one for Linux, as the environment variable may vary.
+    - Reuben modified the CodeBlocks Project file to include the PhysFS lib.
+
+19 Aug-2007
+    - Bjorn set bindNextKey to false at the beginning of the action handler
+      for the player setup menu and refreshed the keys so that doing anything
+      other than pressing a key to bind will cancel the keybinding.
+
+16 Aug-2007
+    - Bjorn fixed the crash when using the keyboard to select keybinding
+      buttons due to uninitialized value of bindNextKey.
+    - Bjorn updated SConstruct to remove gne library path.
+    - Reuben updated: /src/menu/playersetup.cpp & /src/menu/playersetup.h
+      Updated: void PlayerSetupMenu::keyPressed(gcn::KeyEvent &keyEvent) so
+      that the parameter keyEvent is no longer constant.  This allows the
+      function signature to match that of the function keyPressed in the
+      class gcn::KeyListener for proper overloading.
+      Bug Fixed: Key Bindings in the Player Setup menu now work again.
+
+15 Aug-2007
+    - Reuben updated: /src/menu/gamesetup.cpp
+      Updated: mapDropDown width to 400.
+
+3 Aug-2007
+    - Reuben updated: /src/menu/menu.cpp
+      Updated: twinkleAnimation() to run at a faster speed of 1ms.
+
+2 Aug-2007
+    - Reuben updated Windows Development Evironment Installation instructions
+      a little.  (The different library versions that have been released needs
+      more testing for compatibilty and instructions need to be made for them.)
+    - Reuben updated Code::Blocks project file for use with Code::Blocks
+      version: svn build rev 4338
+      build: Jul 31 2007, 18:36:03 - wx2.8.4 (Windows, unicode)
+    - Reuben updated: /bin/menu/twinkle1.png
+    - Reuben added: /bin/menu/pulse1.png
+    - Reuben updated: /src/menu/menu.cpp
+      Updated: twinkleAnimation() to run at a faster speed of 100ms.
+      Added: pulseAnimation() to play as an animation on the menu screen.
+    - Reuben updated: /include/menu/menu.h
+      Added: pulseAnimation().
+
+18 July-2007
+    - Bjorn applied a patch from Alexander Clausen which adds support for
+      pausing the game using the Pause key.
+
+16 July-2007
+    - Bjorn removed the 'rc1' from the version string in the menu
+    - Bjorn patched the source to run with guichan 0.6.1 (too bad 7.0 is out now)
+
+29 Dec-2006
+    - Bjorn replaced the rest of the gcn::Button 's in the menu with skinned
+    buttons.
+
+12 Dec-2006
+    - Bjorn fixed entities drawing in score box by setting the screen clipping
+    rectangle to be the background image clipping when drawing entities.
+
+1 Dec-2006
+    - Reuben updated probe death with transparencies and damage effect
+    - Reuben made new level "Alpha Quarant".
+    - Reuben made the buttonskins.png more transparent.
+
+30 Nov-2006
+    - Bjorn changed background animation scheme to have a static image and
+    then place animation widgets over animated portions.  Hopefully this
+    will be faster.
+    - Bjorn fixed a bug in skinnedbuttonwidget where parent constructor was
+    not called, resulting in some un-initialized values in the widget
+    - Reuben adjusted skinnedbuttonwidget.cpp so when initialized
+    buttonState is assigned the value buttonUp.
+    - Reuben updated buttonskins.png with new skin.
+    - Reuben cleaned up code in animationwidget.cpp and animationwidget.hpp.
+    They no longer have setAnimation() and getAnimationFileName() as internal
+    methods due to a possible memory leak.  They weren't needed in any case.
+    - Reuben added skinnedbuttonwidget.cpp and skinnedbuttonwidget.hpp to
+    allow for skinned button support.
+    - Reuben modified Main Menu buttons to utilize the skinnedbuttonwidget
+    instead of the regular button widget.
+    - Reuben added buttonskins.png which contains the buttons skins.
+    - Bjorn fixed a bug in the collision mask where pixels pixels just
+    outside the width or height of the map could be tested, resulting
+    in a crash (on some machines)
+
+29 Nov-2006
+    - Bjorn added the "luna" map
+    - Bjorn made entities "wrap around" when they go off the edge of the map.
+    - Reuben adjusted labels on the sound and video menu so that captions are
+    now capitalized.
+    - Reuben adjusted the opacity of pagebackground.png from 80% to 60%.
+    - Reuben dropped the gradient from white to black in pagebackground.png and
+    made it just gray (0x7f7f7f).
+    - Reuben re-arranged the menu items again for a cleaner look.
+    - Reuben added a label to the main menu to display the program version.
+    - Reuben added support for multiple animation strips in the same image file
+    to the animationwidget.cpp source code via use of the animationStripLocation
+    variable.
+    - Reuben added animated background support to the submenu pages.
+    - Reuben added pagebackground.png which is the submenu pages background.
+    - Reuben re-arrange the menu layouts so that they would fit into the new
+    skinned submenu pages.
+
+27 Nov-2006
+    - Reuben updated menubackground.png with a new base frame.
+
+23 Nov-2006
+    - Reuben added support for animations via animationwidget.cpp and
+    animationwidget.h.
+    - Reuben added support for animated menu backgrounds.
+    - Reuben added sample animated menu background.  I will add a real menu
+    background soon.
+    - Reuben made submenu pages transparent.
+
+15 Nov-2006
+    - Reuben made a Code::Blocks project file for Windows builds.  Added file:
+    Balder2D.cbp
+    - Reuben composed a document containing instruction on how to set up a
+    Win32 Development Environment for Balder2D.  Added file:
+    Balder2D Win32 Development Environment Setup Instructions.txt
+
+12 Oct-2006
+    - Bjorn made projectile velocity adjustable via the config file.
+    - Bjorn changed probe velocity to projectile addition to be AddProbeVelocity
+    - Bjorn made sure to call RefreshKeys() when the player setup menu is
+    created so that everything is correct when it is first displayed (ie, key
+    binding buttons are hidden if player 1 is computer controlled).
+    - Bjorn fixed label bug for keybinding menu, label sizes were not adjusted
+    when labels were changed, now they are.
+
+18 Sep-2006
+    - Bjorn fixed the keybinding bug (keybinding was totally broken by the menu
+    refactor).
+    - Bjorn added a spawn animation.
+    - Bjorn added drawing some circles outside of the probe to further highlight
+    which way the probe is aiming
+
+9 Sep-2006
+    - Bjorn removed networkmanager and references to it from the new branch
+    - Bjorn created a no_network branch for creating packages w/o any network
+    dependancies.
+    - Bjorn added the packer subdirectory (for package generation) to CVS
+    - Bjorn added a script to run balder2d when it is installed in a system
+    wide directory on a linux machine.
+    - Bjorn added a method to ConfigManager to generate a config file if the
+    requested config file does not exist.
+    - Bjorn added the ability to use an alternate config file, specified on
+    the command line as the first argument.
+
+8 Sep-2006
+    - Bjorn added some menu files that somehow got missed when he refactored
+    the menu system.
+
+20 Aug-2006
+    - Bjorn did a major refactoring of the menu code.  Each submenu is now its
+    own file (well, almost,  the multiplayer menus will have to be broken up
+    if they get worked on again).  Almost everything that used to work seems
+    to be working again.  Some testing is required to make sure this didn't
+    introduce new bugs.
+
+26-June-2006
+    - Reuben made some changes to the menu layout.
+    - Reuben cleaned up the code in menu.cpp some.
+    - Reuben added the "Network ID" to the Network Game menu for lounge chat.
+    - Reuben setup a text box in the client/host lounges for logging chat text.
+    - Reuben made the lounge chat "Send" button dump text to the chat log.
+    - Reuben added the SetStringValue() and GetStringValue() methods to the
+    configmanager.cpp source code.
+
+22-June-2006
+    - Reuben added code to the Probe::fire() method to allow for an option to
+    be set in the config file that will either shoot projectiles with a fixed
+    speed or with a speed based off of the probes current speed and direction
+    of movement.  New option in config file is named:
+    "Calculate_Projectile_Velocity_With_Probe_Velocity".
+
+20-June-2006
+    - Bjorn added a new map (liptoid)
+    - Bjorn fixed a bug where the sound volume was not set from the config file
+    unless the volume slider was changed.
+    - Bjorn made separate sliders for sound and music volume.
+
+13-June-2006
+	- Reuben updated the "config.xml" with some notations for future
+	reference.
+	- Reuben updated the "config.xml" with some additional settings for
+	multiplayer mode.  New settings include: server port, client port,
+	connection time out (in seconds) and maximum connections allowed.
+	- Reuben added new functionality to the NetworkManager class to allow
+	it to actually activate a server or connect a client.
+	- Reuben updated the menu to allow the network connection interface to
+	output connection attempts status to the user.  This includes connection
+	failure reasons and connection time-out indication.  User can cancel
+	connection attempts in mid-process without the program locking up.
+
+2-June-2006
+    - Reuben added Code::Blocks project file for Windows builds.
+    - Reuben added the new NetworkManager.cpp and NetworkManager.h files.
+    - Reuben introduced a new dependency, RakNet from www.rakkarsoft.com.
+    This allows for network capabilities in the game.
+
+24-May-2006
+    - Reuben made it so that sample maps in the network game lounges update.
+    - Reuben re-arranged the buttons on the Network Game menu, the Host
+    Lounge and the Join Lounge.
+    - Reuben re-arranged the Multiplayer menu to allow a "Host" option.
+    - Reuben designed and added both the "Host Lounge Menu" and the "Join
+    Lounge Menu".
+
+22-May-2006
+    - Reuben updated the general layout of the Multiplayer Menu.  Added
+    "Host" button.
+    - Reuben updated the todo.txt list with new networking goals, main menu
+    background, player options menu updates.  Some finished items were also
+    marked as done.
+
+19-May-2006
+    - Bjorn ripped out all the GNE network code in preparation for a network
+    overhaul.
+
+29-Apr-2006
+    - Bjorn fixed the timer bug so it displays 0:00 at the end of the game.
+    - Bjorn fixed the bug where the explosion animation plays twice when
+    a probe runs out of life - however, probes for players that disconnect in
+    a multiplayer game will now simply dissapear, rather than exploding.
+
+12-Apr-2006
+    - Reuben adjusted the jamfile.mingw to include the library flag -mwindows
+    to allow the program to be run as a MS Windows app without having to run
+    through the MS Windows CLI.  This prevents the DOS Prompt box from
+    openning in the background during runtime.
+
+
+11-Apr-2006
+    - Reuben adjusted the sample map widget to allow the image that's
+    loaded to keep its original aspect ratio rather then changing it to the
+    aspect ratio of the sample map widget.
+    - Reuben adjusted the sample map widget to center the sample map
+    inside of the widget rather then posistioning it at the actual X and Y
+    coordinates of the widget.
+
+7-Apr-2006
+    - Reuben got the scaling to work for the X and Y deminsions properly.
+    - Reuben got scaling to work for the sample map.  Must work on
+    scaling proportions to get them to return the proper value.
+
+6-Apr-2006
+    - Reuben edited the menu to render the sample map on to the game
+    set up menu.
+    - Reuben added samplemapwidget.cpp and it's header file to the project.
+    NOTE: That the sample map doesn't scale the map down to size yet.
+
+28-Mar-2006
+    - Reuben modified the windows setup script to allow for the installation
+    of Python 2.4 and Psyco 1.5.  It includes the options to download and
+    then install its components.
+
+26-Mar-2006
+    - Reuben added LEGAL.TXT.
+    - Reuben revised the script for compiling a Windows setup program to
+    allow it to creat a start menu shortcut regardless of whether or not the
+    'Create Desktop Shortcut' option is selected.
+
+24-Mar-2006
+    - Reuben made windows installer script for compiling a windows installer
+    file..
+    - Reuben made README.TXT.
+    - Reuben made balder2d.ico.
+
+23-Mar-2006
+    - Bjorn reduced the projectile lifetime to 200 frames (was 400).
+    - Bjorn added checks so that you can't configure keybindings/AI scripts for
+    more players than are set by "Number of Players" in the options menu.
+    - Bjorn changed the ammo indicators so they rotate around the probe, rather
+    than aligning with the aiming angle.  This makes it easier to see.
+    - Bjorn added menu.ogg and default.ogg to the music menu.  These are not
+    necisarily final choices, just want to see how they fit as a starting point.
+    - Reuben added code to SoundManager::PlayMusic() to set the music names
+    "NONE", "None" and "none" as reserved names that will prevent the game
+    from playing music during that map.
+
+22-Mar-2006
+    - Reuben made the main menu save all options to file as soon as one is
+    changed except for values in number fields.  You must either change a
+    option, start a new game, or exit the program for number fields to save
+    their value.
+    - Reuben made the music check box in the main menu toggle the music on
+    and off in the menu imediatly.
+    - Reuben made it if music is enabled and music ends it repeats in both
+    the game and at the main menu.
+    - Reuben made it so when the main menu comes up it play the menu music.
+    When game play starts it plays the music specified in the
+    <Music name="" /> tag in the maptags.xlm file.  If the tag doesn't exist,
+    the game playes the music named "default".  When the game returns to the
+    main menu it starts to play the "menu" music once again.
+    - Reuben made it so SoundManager::PlayMusic() checks to see if the music
+    option is enabled.
+    - Bjorn made aiListBox fire "changeAIScript" event directly when clicked,
+    instead of having next/previous or returning to the options menu cause it.
+    - Bjorn hid keybining button/labels for computer players
+    - Reuben PlayMusic(const char *name) and StopMusic() to the
+    SoundManager.
+    - Bjorn added menu/sampleprobewidget which is now added to the player
+    setup menu, and is drawn by the gui, rather than blitting a probe sprite
+    on top of the menu, which ended up showing on top of the AI dropdown.
+    - Bjorn moved the AI selector box to the top of the player setup screen
+    - Reuben added the 'music' directory and set the soundmanager to load
+    music from is rather then the sounds directory.
+    - Reuben reconfigured the way the soundmanager checks to see if the game
+    should be playing sounds.
+
+21-Mar-2006
+    - Reuben added sound toggle based off of the value in the config file.
+    - Reuben added sound and music check box options storage capability in
+    the config file.
+    - Reuben fixed bug with ArtificialController::ShutDown().  When
+    ShutDown() was called in Windows binary the program terminated prematurly
+    instead of returning to the main menu.
+    - Reuben patched a bug in the main menu where only some options were
+    saved on program exit and the rest were saved on game start.  Now all
+    options are saved on program exit and game start.
+    - Bjorn ran a code reformatter (astyle), just for fun, on player.cpp  Yea
+    that pretty much obfuscates all the changes, but it looks nice :p.
+    - Bjorn aligned the livesleft and score indicators to the right side of the
+    stat box.
+    - Bjorn added a new font for lives left.
+    - Reuben patched a bug in the lives remaining counter in the stat box to
+    hide the lives remaining counter when the game settings are set to
+    unlimited lives per round.
+    - Reuben update co-ax map background.
+    - Bjorn fixed a bug in Probe::AddImpulse() where push power would remain
+    charged when bumped off a wall, or blown up.
+    - Bjorn fixed a bug in Probe::AddImpulse() where being bumped off a wall
+    was different in the horizontal or vertical directions, from a diagonal,
+    because of failing to use the magnitude of the collision velocity, and
+    simply adding x and y componants in stead.
+    - Bjorn bugfix for my own dumbassness (x^2 != x*x)
+    - Reuben added a "Player Lives Remaining" counter to the players stat box.
+    - Reuben removed the health and ammo indicators from the players stat box.
+    - Reuben added a vertical bar graph to the players stat box for probe push
+    off speed indication.
+    - Bjorn fixed the Probe-Probe collisions, so exploding probes don't collide
+    - Bjorn fixed ArtificialController::py_IsLineOfSight so that it tests
+    evenly along x or y, avoiding missing walls when x's are close together
+    but y's are not.
+    - Bjorn did some more work on the ai scripts, so computer players will
+    try to collect powerups.
+
+20-Mar-2006
+    - Reuben added the map Co-Ax to the map's directory.  It must have texturing
+    layered onto the background.
+    - Reuben changed the method in which the config file is saved so were is
+    saves on program exit as well as start game.
+    - Bjorn added a mock ArtificialController in 'ac.h' to the bin/scripts/test/
+    directory, which will initialize the python interpreter and add the 'balder'
+    module, which many of the scripts require.  The unit tests for the scripts
+    should now be run by running the 'runtests' executable in the test directory.
+    - Reuben added broken functionality to the menu to save the selected AI
+    script to the config file.  NOTE: must work on this some more for it to
+    work properly.
+    - Reuben added functionality to the menu to load the selected AI script
+    from the config file.
+    - Reuben added ConfigManager::SetControlType(int, const char*).
+
+19-Mar-2006
+    - Bjorn added runtest.cpp, which should allow unit tests to be run on scripts
+    by including ArtificialController, which initializes the 'balder' module.
+    - Bjorn modified balderai script so the probes don't try to fire through
+    walls, and don't fire as fast at far away targets (needs work still)
+
+18-Mar-2006
+    - Bjorn added balder.IsLineOfSight and balder.IsWall python mappings which
+    map to py_IsLineOfSight and py_IsWall methods of ArtificialController
+    - Bjorn fixed the ArtificialController::ShutDown() function to properly
+    empty the controlled probe list.
+    - Bjorn restructured the scripts directory
+    - Bjorn added some python exception handling to the ArtificiallController
+    DoControl method.  Now if a script fails, the traceback and exception are
+    printed, and the probe is removed from the list of probes to control.
+    - Bjorn made ArtificialController have all static methods and a private
+    constructor, so it can no longer be instantiated.  Instead, it now has
+    methods "Initialize" and "ShutDown".
+    - Bjorn moved python module and function loading functions into
+    ComputerProbeControl structure, and put ComputerProbeControl in its own file.
+
+17-Mar-2006
+    - Bjorn updated the probe sprite to let the amo show through a bit better.
+    - Bjorn tweaked the ammo positioning in the probe for better visibility.
+    - Bjorn changed PROJECTILEWIDTH and PROJECTILEHEIGHT in probe.h to
+    AMMOWIDTH and AMMOHEIGHT, to avoid any possible conflicts  with
+    PROJECTILEWIDTH and PROJECTILEHEIGHT defined in projectile.h.
+
+17-Mar-2006
+    - Reuben added AI Script selection control to the Player Options menu.
+    Note: It's not fully functional yet as it doesn't save the selection
+    to the config file yet.
+
+16-Mar-2006
+    - Reuben changed DrawAmmo() to draw the amount of ammo that the probe
+    has around the inside of the probes sprite.  The first piece of ammo
+    will always be aligned with the probes gun.
+    - Reuben DrawAmmo() to draw the amount of ammo that the probe has across
+    the top of the probes sprite.
+    - Reuben added function for layering the ammo indicator into the probes
+    that are rendered onto the screen.  It's not finished.  As they are
+    rendered on the top left corner of the probes sprite.
+
+14-Mar-2006
+    - Bjorn commented out the registering of the 'balder' module.  More
+    thought is required here. For now it imports in the other scripts
+    from the balder.py file; but if constants change, this would have to
+    be updated.
+    - Bjorn added two new AI scripts, "randomai" and "simple_aimer".
+    - Bjorn fixed the python glue code so that if the AI script throws an
+    exception, it gets cleared, and doesn't kill the python interpreter.
+    - Bjorn added the ability to specify different ai scripts for different
+    probes.
+
+11-Mar-2006
+    - Bjorn fixed the "still able to fire when you're blowing up" bug.
+    - Bjorn fixed a bug where removed players were still trying to be
+    controlled by the AI.
+    - Bjorn changed AI scripts so computer probes now aim at the
+    closest enemy probe.
+    - Bjorn updated the mingw jamfile to add the python include and link stuff.
+
+10-Mar-2006
+    - Bjorn added some cleanup stuff to gamemanager, I'm sure more is needed.
+    - Bjorn wrote a simple AI script which causes computer controlled
+    probes to aim for player two and fire.
+    - Bjorn added python bindings to artificialcontroller
+
+4-Mar-2006
+    - Bjorn implemented a "random" AI for computer controlled probes
+
+3-Mar-2006
+    - Bjorn added AI framework.
+    - Bjorn added code to play a sound when shields are raised (though  this
+    sound does not exist yet).
+    - Bjorn changed it so shields regenerate after a hit is taken.  This
+    should balance the shield powerup with the other two a bit more.
+    - Bjorn made the extra spreadfire projectiles start a bit more spread out.
+    - Bjorn updated the spreadfire indicator so it is easier to see.
+    - Bjorn tweaked the probe sprite a bit so hopefully it is easier to see
+    where the gun is aiming.
+	- Bjorn updated the hit animation to be a bit more transparent.
+
+2-Mar-2006
+    - Bjorn made shields draw around shielded probes.
+    - Bjorn increased the erased area around all sprites, which should
+    eliminate artifacts when we draw effects outside the probe radius.
+    - Reuben added an indicator so that players may know when their probes
+    are recharging ammo faster with the powerup 'fast ammo recharge'.  The
+    players probe flashes a modified color once every 3 secs if the powerup
+    is in effect.
+    - Reuben added an additional layer to the probe sprites rendered to
+    show when a spread fire powerup has been aquired by a probe.
+
+1-Mar-2006
+    - Bjorn updated the probe sprite so it looks more badass and added some
+    extra guns to be drawn when a spreadfire is picked up.
+    - Bjorn adjusted the life indicator on the probe so that it can never be
+    larger than the probe radius, and full life takes up 2/3 of the probe radius
+    - Reuben added player life indication into the probes that are rendered
+    onto the game screen.
+
+28-Feb-2006
+    - Reuben removed sight from menu.cpp to renderer.cpp.  I modified
+    the code to allow the menu to load the sample probes sprite directly.
+
+27-Feb-2006
+    - Reuben removed constant variables from probe.h.
+      - const probe_color BLUE = 1;
+      - const probe_color YELLOW = 2;
+      - const probe_color RED = 3;
+      - const probe_color GREEN = 4;
+    - Reuben added sample probe to the 'Players Option' menu for color
+    sampling.
+    - Reuben fixed minor bug with sample probes sprite id.  Changed sample
+    probes sprite id from 'probe' to 'sampleprobe'.  I did this to avoid
+    crash after playing game and returning to the players options menu.
+
+26-Feb-2006
+    - Bjorn fixed the exploding projectile artifact bug.
+    - Bjorn removed probestate, projectilestate, and playerinputstate from
+    the source tree as they never contained any real source.
+
+25-Feb-2006
+    - Bjorn made probes spawn "randomly" (still deterministic) when no
+    suitible spawn location can be found.
+    - Bjorn fixed Collisionmask so that it will return false for points with
+    negative values, instead of causing a segmentation fault.
+    - Bjorn removed old, commented out, collision code, as well as some other
+    bits of commented old crusty stuff that was not needed.
+24-Feb-2006
+      - Reuben modified the way the ConfigManager::GetPlayerColor()
+      loads a 24 bit color.
+      - Reuben modified the way the ConfigManager::SetPlayerColor()
+      saves a 24 bit color.
+      - Reuben added the action 'colorChange' to menu.cpp and then
+      connected 'redSlider', 'greenSlider' and 'blueSlider' to
+      'colorChange' on change.
+
+23-Feb-2006
+      - Reuben modified the way the ConfigManager::GetPlayerColor()
+	operates.  Instead of taking a SDL_PixelFormat objects address
+      to get an alpha color component, it expects you to supply an
+      8 bit alpha color component.
+      + const probe_color ConfigManager::GetPlayerColor(int conrtoller,
+      Uint8 cAlpha)
+      - Reuben added the Red, Green and Blue Slide controllers to the
+      'Player Options' menu.  They currently load settings from the
+      config file, but do not save settings to the config file.
+	- Bjorn added the redspectrum image to the player setup menu.
+	- Bjorn made the Player Setup container larger, so there was a
+	100 pixel border on the right as well as the left (insteaf of 150).
+	- Bjorn switched the positions of the 'Player Setup' and
+	'Sound and Video' menus in the options menu.
+
+22-Feb-2006
+	- Bjorn shrunk balderfont.png to allow more room in the menus
+    - Reuben removed colorspectrum.png and added:
+       + redspectrum.png
+       + greenspectrum.png
+       + bluespectrum.png
+
+20-Feb-2006
+    - Reuben modified configmanager.cpp to format a 24 bit color from the
+    config file to a 32 bit color including an 8 bit alpha component.
+
+18-Feb-2006
+	- Bjorn added "press Esc to return to main menu" to the text displayed
+	when the game ends.
+    - Bjorn added experimental joystick support.  Joystick controls are
+    hard coded to use joystick 0 to control the second player (controller[1])
+    in *addition* to any keys that player might have mapped.
+    Button0=fire, button1=stick/push, left/right on the direction pad rotate.
+
+15-Feb-2006
+	- Bjorn changed the score displays to only be outlined in the probe color
+    - Bjorn made probes draw a filled circle of the probe color and then blit
+    the new probe blank on top of it.
+    ** note, this introduced a new library dependancy, SDL_gfx **
+    - Bjorn changed the way entities are rendered.  They now have a "DrawOnto"
+    method which takes a surface, (in our case, the screen) and draws the
+    correct frame in the correct spot.
+	- Bjorn tweaked the frame calculations to make aiming match match better.
+	- Bjorn replaced the blue probe with a semi-transparent blank in preparation
+	for the new probe render scheme.
+    - Reuben added bin\menu\colorspectrum.png to the project.
+
+13-Feb-2006
+    - Reuben modified lines 260 and 278 in gamemanager.cpp under the functions
+       + player_id GameManager::CreateNewPlayer()
+       + bool GameManager::CreateNewPlayer(player_id, int, bool)
+    to allow the GameManager to load the colors saved in the config file as
+    the players color of choice.
+    - Reuben added two additional functions to configmanager.cpp and
+    configemanager.h that allows the player to save their probe color or
+    to load their probe color to the congig file.
+       + const probe_color ConfigManager::GetProbeColor(int controller)
+       + void ConfigManager::SetProbeColor(int controller, probe_color newColor)
+
+07-Feb-2006
+    - Reuben changed the assignments on line 25 and 64 in powerup.cpp to
+    casts rather then assign and truncate to avoid compiler warnings.
+
+5-Feb-2006
+    - Bjorn tweaked the time delay for freindly projectiles to not
+    destroy each other, and tested to make sure they are freindly.
+    - Bjorn fixed the bounce collision detection to only test pixels
+    on the circle around the edge of an entity, using a better
+    algorithm to determine what pixels to test than before.
+
+25-Jan-2006
+    - Bjorn made the id of the last player remaining display when only one
+    remains.
+    - Bjorn made player scores display according to their player ID so that
+    when a player is eliminated, their scores will be left visible.
+
+13-Jan-2006
+    - Bjorn fixed a clock display bug where there are less than 10 seconds.
+
+02-Jan-2006
+	- Bjorn made a clock display for timed games.
+	- Bjorn made "Game Over" and an optional additional message display
+	when one of the game mode conditions are met.  The game then
+	waits for escape to be pressed and then returns to the main menu.
+	- Bjorn added a DisplayText method to the Renderer.
+	- Bjorn made the game end when the time runs out.
+	- Bjorn made the game end when only one player remains.
+	- Bjorn made probe lives limited to the number set in game setup.
+	Players are removed from the game when they run out of lives.
+	- Bjorn made the game end when the maximum score is reached.
+	- Bjorn made game type values hidden when the game type is disabled.
+	- Bjorn changed game type options to check boxes.
+	- Bjorn addded a setValue method to the NumberField class.
+
+24-Dec-2005
+	- Bjorn added numberfields for time, lives, and score in game setup.
+	- Bjorn added methods to the numberfield class to get the value, and
+	made it only accept numerical input and display right justified.
+
+23-Dec-2005
+	- Bjorn added the NumberField class to the menu.
+	- Bjorn moved map selection to a submenu "Game Setup" of the Options
+	menu. Also added three game types to this menu. These are radio
+	selections.
+
+11-Sept-2005
+	- Bjorn changed "mutiplayer" in the main menu to "join network game".
+
+28-Oct-2005
+	- Bjorn added/implemented serialize and deserilalize methods for
+	projectiles and powerups.  Also added necesarry logic to the
+	network manager, and update functions in the gamemanager so that
+	these entities are propegated over the network when a client joins.
+	- Bjorn made the powerup spawn interval load from the config file.
+	- Bjorn made the recharge accellerator powerup be times 3 instead of 2.
+
+13-Oct-2005
+	- Bjorn fixed a bug where powerups would spawn outside the
+	boundaries, (accidentally using width instead of height)
+	- Bjorn made probes gain health when picking up a powerup that
+	the probe already has.
+
+12-Oct-2005
+	- Bjorn added effects for the shield and recharge acceleration
+	powerups.
+	- Bjorn added sprites for more powerups and made generation
+	random.  Also selects the graphic for each powerup.
+	- Bjorn got the spreadfire powerups working.  Powerups
+	are lost when the probe is destroyed.
+	- Bjorn fixed a segfault resusting from projectiles fired
+	into walls.
+
+7-Oct-2005
+    - Bjorn made random (seeded from the frame number) powerups
+    appear every certain number of frames (hard coded, needs to go
+    in config).
+
+6-Oct-2005
+	- Bjorn added a powerup entity and a factory to produce it
+
+22-Sep-2005
+	- Bjorn made clients quit when the server disconnects
+	- Bjorn changed some static_cast to reinterpret_cast to
+	compile with gcc 4.0.  This also appears possibly to have
+	fixed synchronization problems somehow.
+	- Bjorn added a test map with just an empty area
+
+18-Sep-2005
+    - Bjorn fixed the map selection to load from the config file.
+    - Bjorn added deletion of probe_factory and projectile_factory
+    when GameManager is deleted.
+
+15-Sep-2005
+    - Bjorn fixed an uninitialized rotation state for probes.
+
+14-Sep-2005
+	- Bjorn added UpdatePlayer and UpdateProbe methods to GameManager
+	- Bjorn changed the network scheme so that entities can
+	serialize and deserialize themselves to and from a given buffer.
+
+09-Sep-2005
+	- Bjorn removed some (hopefully) unecisarry mutex locks in
+	networkmanager to avoid deadlock occuring.
+
+07-Sep-2005
+	- Bjorn added some more mutex locking to
+	NetworkManager::DeliverEvents() to hopefully fix some server crashes.
+
+05-Sep-2005
+	- Bjorn added client notification to destroy probes and players
+	when other clients disconnect.
+	- Bjorn added code so that when a client disconnects from the
+	server, the probes which were under the control of that client
+	(which is also now kept track of) are destroyed and removed from
+	the game along with the player objects that controlled them.
+	(this only happens on the server, notifying other clients still
+	needs to be implemented)
+
+04-Sep-2005
+	- Bjorn fixed the code so that the server no longer crashes when
+	the client disconnects.  This is accomplished by checking that a
+	connection is still connected before sending anything over it and
+	(hopefully) removing the connection from the connection list.
+
+30-March-2005
+	- Bjorn made the client wait to deliver events until packets for that frame
+	arrive from the server.
+
+29-March-2005
+	- Bjorn addded numbering of inputstate packets and started to implement
+	tracking by number on the client so it can be assured that all packets for
+	a frame have arrived before the frame is processed.
+
+25-March-2005
+	- Bjorn changed input event scheduling on the server to be for the following
+	frame to help avoid missed input events.
+
+24-March-2005
+	- Bjorn added sending input over the network.
+	- Bjorn fixed new player creation to occur in the correct frame, so now
+	(assuming packets arrive on time) as long as no one touches any controls
+	clients can join and everyone will stay synchronized.  If a player creation
+	packet arrives after the frame that the player was created in, an error will
+	be printed; eventeully this should result in a complete update request.
+	- Bjorn fixed a	bug where the starting frame was not being set on the client
+	- Bjorn made sound volume loaded from and saved to the config file.
+
+23-March-2005
+	- Bjorn added reading velocity and stuck status to spawn locations.
+	- Bjorn changed probe creation and respawning to take into account stuck
+	status (and velocity in the case of respawn).
+
+22-March-2005
+	- Bjorn changed the timing scheme so that the game will run faster if it gets
+	behind the frame it should be at.  This will helps client synchronization.
+
+23-Feb-2005
+	- Bjorn added a third player/probe creation method which takes position and
+	velocity parameters for the probe, which are now sent from the server to the
+	client so the starting position and velocity of the probes are synchronized.
+
+22-Feb-2005
+	- Bjorn made the probe creation on the client work.  The client now recieves
+	updates and creates all of the probes which exist on the server, and then
+	reqeusts creation of as many new probes as hhere are local players on the
+	client.  The server creates those probes and sends back player id's for
+	each.
+
+19-Feb-2005
+	- Bjorn did some more work on client initialization:
+		Clients now send a request for game state and the server responds
+		by sending the "update complete" packet that will eventually signal
+		to the client that the server has sent all of the necesarry information.
+	- Bjorn also changed the list of network connections to be a map, using
+	the initial network remoteAddress of the reliable (tcp) connection for
+	the key.
+
+18-Feb-2005
+	- Bjorn did more work on requesting and sending initial game state.
+
+17-Feb-2005
+	- Bjorn added a GameStatePacket and moved some of the packet source to
+	packets.cpp instead of having everithing in the header.
+
+16-Feb-2005
+	- Bjorn fixed connections so the client can connect and get the map name
+	without causing a crash on either side.
+	- Bjorn added a very basic log class to use instead of std::cout << for all
+	messages.  This way logging capabilities can easily be extented.
+
+15-Feb-2005
+	- Bjorn moved GNE initialization and shutdown into main, so now at least
+	the network stuff doesn't break anithing that used to work.
+
+01-Feb-2005
+	- Bjorn started network stuff, added packets and a connection listener
+
+28-Jan-2005
+	- Bjorn made the map selection dropdown only list directories that actually
+	contain all of the files needed for a map (or at least named that way).
+	- Bjorn added a multiplayer menu.
+
+27-Jan-2005
+	- Bjorn made map selection a drop down menu item instead of a text box.
+
+22-Jan-2005
+	- Bjorn fixed the bug where blits did not work in fullscreen mode in windows.
+	- Bjorn  fixed a bug where probes could push off faster than the supposed
+	maximum speed.
+
+17-Jan-2005
+	- Bjorn made push off speed variable.
+	- Bjorn made probes have a lasting explosion so one exploding probe can
+	destroy multiple other probes.
+
+15-Jan-2005
+	- Bjorn made the volume control slider and fullscreen checkboxes in
+	the sound/video options menu work.  Fullscreen mode shows no sprites
+	though for some reason.
+	- Bjorn made keybinding on the player setup menu actualy do something.
+
+11-Jan-2005
+	- Bjorn made it possible to stick to walls and push off with the same key.
+	- Bjorn made keybindings be displayed it the player configuration menu.  No
+	actual binding is possible there yet however.
+
+10-Jan-2005
+	- Bjorn added a player setup and sound/video sub menus to the options menu
+
+09-Jan-2005
+	- Bjorn doubled the number of probe animation frames (for turning/aiming).
+
+06-Jan-2005
+	- Bjorn added a text feild it the options menu to select the map to use.
+	- Bjorn added sound options to the options menu to toggle on or off sound
+	or music and adjust the volume.  None of these controls do anything yet
+	however.
+
+24-Dec-2004
+	- Bjorn fixed a bug where a dying probe that was hit would restart its
+	explosion sequence and give another 3 points to the player firing that
+	shot.
+	- Bjorn made scores be displayed in the status information for each probe.
+	The current scheme is 1 point for a hit, 3 for a kill, -1 if you hit
+	yourself, and -1 for dying.
+	- Bjorn added the options menu and an option to set the number of players.
+
+22-Dec-2004
+	- Bjorn added a gui menu system
+
+21-Dec-2004
+	- Bjorn moved a few probe "constants" to the config file. more will follow.
+	- Bjorn made the ConfigManager stuff static.
+
+20-Dec-2004
+	- Bjorn made the background color of each status display match (sorta)
+	the probe color for that player.
+
+18-Dec-2004
+	- Bjorn added a status display area with indicators for ammo and life
+	remaining for each probe.
+	- Bjorn added convenience function to the renderer to blit an arbitrary
+	surface to the screen at some location (mostly for HUD/status stuff).
+
+17-Dec-2004
+	- Bjorn added the maptags.xml file for maps.  This file currently
+	defines the dimensions of the map, and contains a list of spawn
+	locations for the map.
+	- Bjorn made the map to load configurable (via config.xml).  Maps are
+	now loaded from the maps/mapname directory.
+
+16-Dec-2004
+	- Bjorn made number of players configurable via config.xml and fixed bug
+	where having a keybinding not found in the config file would cause the
+	game to crash when input tried to use a null pointer as a key.
+
+11-Dec-2004
+	- Bjorn update the game field, adding a bit more geometry.
+	- Bjorn changed how players initially spawn (so they use spawn locations)
+	and how they respawn (no longer moving and now "stuck") so players can
+	choose which direction they want to move after they respawn.
+	- Bjorn made 3 players start by default. Still need to make this variable.
+
+27-Nov-2004
+	- Bjorn added a circular linked list of spawn locations so that afte a
+	probe is destroyed it will respawn in the next location, checking to make
+	sure that spot is not already occupied (prevents spawning on top of other
+	probes).
+
+26-Nov-2004
+	- Bjorn added sounds support.  All sounds are in the sounds/ directory.
+	The sound manager plays the "sounds/music.ogg" file as music and proobes
+	now play sounds for all actions, if the sound file exists for that action.
+
+25-Nov-2004
+	- Bjorn added animation to the projectiles and a hit animation to the probes
+
+24-Nov-2004
+	- Bjorn added different color probes and death (exploding) animations for
+	dying probes.
+	- Bjorn changed the input class so that there is one Input instance in the
+	game which is responsible for doing input for all players.  It loads
+	keybindings from the ConfigManager and maps them to the local players.
+	- Bjorn added a publically accessible ConfigManager to the GameManager.
+
+23-Nov-2004
+	- Bjorn added the ConfigManager class which uses tinyxml to load and parse
+	a config file.  Also added the config file config.xml and the source for
+	tinyxml to the repository.
+
+19-Nov-2004
+	- Bjorn fixed probe starting locations so they depend on id.
+	- Bjorn made sticking to walls work and changed the keybindings a bit.
+	- Bjorn reduded the speed at which probes turn and made them respawn with
+	some velocity.
+	- Bjorn made probes transfer momentum between each other when colliding.
+	- Bjorn fixed the bug where entities with overlapping bounding boxes would
+	have parts of one entity erased by the other.
+
+17-Nov-2004
+	- Bjorn made entities collide with each other.
+	- Bjorn Created history.txt
+
+16-Nov-2004
+	- Bjorn imported the source into the balder2d cvs module.

@@ -1,0 +1,4 @@
+
+env = Environment(CPPPATH='/usr/include/python2.4')
+
+env.Program('runtests', 'runtests.cpp', LIBS='python2.4')

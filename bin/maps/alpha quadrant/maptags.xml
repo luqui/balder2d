@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!-- information about the map -->
+<Map name="Alpha Quadrant">
+	<Size width="800" height="600" />
+	<spawn>
+		<location x="357" y="257" />
+		<velocity x="-2" y="-2" />
+		<stuck status="false" />
+	</spawn>
+	<spawn>
+		<location x="443" y="257" />
+		<velocity x="2" y="-2" />
+		<stuck status="false" />
+	</spawn>
+	<spawn>
+		<location x="357" y="343" />
+		<velocity x="-2" y="2" />
+		<stuck status="false" />
+	</spawn>
+	<spawn>
+		<location x="443" y="343" />
+		<velocity x="2" y="2" />
+		<stuck status="false" />
+	</spawn>
+</Map>

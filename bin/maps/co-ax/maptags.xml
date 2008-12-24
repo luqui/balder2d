@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!-- information about the map -->
+<Map name="co-ax">
+	<Size width="1024" height="640" />
+	<!-- Spawn Locations -->
+	<spawn>
+		<location x="512" y="150" />
+		<velocity x="0" y="-1.5" />
+		<stuck status="false" />
+	</spawn>
+	<spawn>
+		<location x="512" y="490" />
+		<velocity x="0" y="1.5" />
+		<stuck status="false" />
+	</spawn>
+	<spawn>
+		<location x="345" y="320" />
+		<velocity x="-1.5" y="0" />
+		<stuck status="false" />
+	</spawn>
+	<spawn>
+		<location x="680" y="320" />
+		<velocity x="1.5" y="0" />
+		<stuck status="false" />
+	</spawn>
+	<spawn>
+		<location x="95" y="320" />
+		<velocity x="-1.5" y="0" />
+		<stuck status="false" />
+	</spawn>
+	<spawn>
+		<location x="930" y="320" />
+		<velocity x="1.5" y="0" />
+		<stuck status="false" />
+	</spawn>
+</Map>

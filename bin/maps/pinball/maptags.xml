@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!-- information about the map -->
+<Map name="pinball">
+	<Size width="800" height="600" />
+	<spawn>
+		<location x="34" y="268" />
+		<velocity x="0" y="-4" />
+		<stuck status="false " />
+	</spawn>
+	<spawn>
+		<location x="34" y="332" />
+		<velocity x="0" y="4" />
+		<stuck status="false" />
+	</spawn>
+	<spawn>
+		<location x="766" y="268" />
+		<velocity x="0" y="-4" />
+		<stuck status="false" />
+	</spawn>
+	<spawn>
+		<location x="766" y="332" />
+		<velocity x="0" y="4" />
+		<stuck status="false" />
+	</spawn>
+</Map>

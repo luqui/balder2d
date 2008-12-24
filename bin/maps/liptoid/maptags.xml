@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!-- information about the map -->
+<Map name="liptoid">
+	<Size width="1024" height="760" />
+	<!-- Spawn Locations -->
+	<spawn>
+		<location x=" 712.0 " y=" 384.0 " />
+		<velocity x=" 3.0 " y=" 0.0 " />
+		<stuck status="false" />
+	</spawn>
+	<spawn>
+		<location x=" 653.421356237 " y=" 525.421356237 " />
+		<velocity x=" 2.12132034356 " y=" 2.12132034356 " />
+		<stuck status="false" />
+	</spawn>
+	<spawn>
+		<location x=" 512.0 " y=" 584.0 " />
+		<velocity x=" 1.83697019872e-16 " y=" 3.0 " />
+		<stuck status="false" />
+	</spawn>
+	<spawn>
+		<location x=" 370.578643763 " y=" 525.421356237 " />
+		<velocity x=" -2.12132034356 " y=" 2.12132034356 " />
+		<stuck status="false" />
+	</spawn>
+	<spawn>
+		<location x=" 312.0 " y=" 384.0 " />
+		<velocity x=" -3.0 " y=" 3.67394039744e-16 " />
+		<stuck status="false" />
+	</spawn>
+	<spawn>
+		<location x=" 370.578643763 " y=" 242.578643763 " />
+		<velocity x=" -2.12132034356 " y=" -2.12132034356 " />
+		<stuck status="false" />
+	</spawn>
+	<spawn>
+		<location x=" 512.0 " y=" 184.0 " />
+		<velocity x=" -5.51091059616e-16 " y=" -3.0 " />
+		<stuck status="false" />
+	</spawn>
+	<spawn>
+		<location x=" 653.421356237 " y=" 242.578643763 " />
+		<velocity x=" 2.12132034356 " y=" -2.12132034356 " />
+		<stuck status="false" />
+	</spawn>
+</Map>
